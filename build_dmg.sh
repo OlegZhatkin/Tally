@@ -9,7 +9,7 @@ xcodebuild -project AIUsageBar.xcodeproj \
            -derivedDataPath build \
            build
 
-APP_PATH="build/Build/Products/Release/AIUsageBar.app"
+APP_PATH="build/Build/Products/Release/Tally.app"
 
 if [ ! -d "$APP_PATH" ]; then
     echo "❌ Сборка не удалась — .app не найден"
@@ -40,7 +40,7 @@ cp -R "$APP_PATH" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
 
 # Создаём read-write DMG, чтобы выставить иконку тома и расположение окна, потом конвертируем в сжатый
-hdiutil create -volname "AI Usage Bar" \
+hdiutil create -volname "Tally" \
                -srcfolder "$STAGE" \
                -ov -format UDRW \
                AIUsageBar.rw.dmg
@@ -54,7 +54,7 @@ SetFile -a C "$MOUNT_DIR" 2>/dev/null || /usr/bin/SetFile -a C "$MOUNT_DIR" 2>/d
 # Раскладка окна: иконки, крупный размер, app слева — стрелка — Applications справа
 osascript <<EOF 2>/dev/null || true
 tell application "Finder"
-    tell disk "AI Usage Bar"
+    tell disk "Tally"
         open
         set current view of container window to icon view
         set toolbar visible of container window to false
@@ -63,7 +63,7 @@ tell application "Finder"
         set theViewOptions to the icon view options of container window
         set arrangement of theViewOptions to not arranged
         set icon size of theViewOptions to 110
-        set position of item "AIUsageBar.app" of container window to {130, 160}
+        set position of item "Tally.app" of container window to {130, 160}
         set position of item "Applications" of container window to {370, 160}
         update without registering applications
         delay 1
