@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="460" viewBox="0 0 340 460" font-family="-apple-system, 'SF Pro Text', Helvetica, Arial, sans-serif">
+  <!-- popup background -->
+  <rect width="340" height="460" rx="14" fill="#1F1F22"/>
+
+  <!-- header -->
+  <rect x="18" y="18" width="30" height="30" rx="9" fill="#10A37F"/>
+  <path d="M27 40 v-9 a3 3 0 0 1 3 -3 h6 a3 3 0 0 1 3 3 v4 a3 3 0 0 1 -3 3 h-5 Z" fill="#fff"/>
+  <text x="59" y="40" font-size="18" font-weight="500" fill="#F2F2F3">ChatGPT</text>
+  <path d="M315 27 a7 7 0 1 0 5 3" fill="none" stroke="#9A9AA0" stroke-width="2" stroke-linecap="round"/>
+  <path d="M313 24 l3 3 -4 1 Z" fill="#9A9AA0"/>
+
+  <!-- pills -->
+  <rect x="18" y="64" width="148" height="30" rx="11" fill="#2E2E33"/>
+  <text x="92" y="83" font-size="13" font-weight="500" fill="#9A9AA0" text-anchor="middle">Claude</text>
+  <rect x="174" y="64" width="148" height="30" rx="11" fill="#10A37F"/>
+  <text x="248" y="83" font-size="13" font-weight="500" fill="#fff" text-anchor="middle">ChatGPT</text>
+
+  <!-- plan card -->
+  <rect x="18" y="106" width="304" height="150" rx="16" fill="#2A2A2E"/>
+  <text x="32" y="134" font-size="14" font-weight="600" fill="#F2F2F3">Тарифный план</text>
+  <rect x="32" y="146" width="30" height="30" rx="9" fill="#10A37F"/>
+  <path d="M41 168 v-9 a3 3 0 0 1 3 -3 h6 a3 3 0 0 1 3 3 v4 a3 3 0 0 1 -3 3 h-5 Z" fill="#fff"/>
+  <text x="72" y="167" font-size="16" font-weight="600" fill="#F2F2F3">Plus</text>
+  <text x="32" y="194" font-size="12" fill="#9A9AA0">Активная подписка · продление 2026-07-24</text>
+  <line x1="32" y1="208" x2="308" y2="208" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <text x="32" y="228" font-size="11" fill="#9A9AA0">ChatGPT не предоставляет API с остатком лимитов,</text>
+  <text x="32" y="244" font-size="11" fill="#9A9AA0">поэтому показывается только план подписки.</text>
+
+  <!-- footer -->
+  <line x1="0" y1="418" x2="340" y2="418" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <text x="16" y="440" font-size="11" fill="#9A9AA0">🔍 Debug</text>
+  <text x="170" y="440" font-size="11" fill="#9A9AA0" text-anchor="middle">Обновляется каждые 15 мин</text>
+  <text x="324" y="440" font-size="11" fill="#9A9AA0" text-anchor="end">Выйти</text>
+</svg>
