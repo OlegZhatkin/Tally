@@ -1,0 +1,6 @@
+{
+  "colors" : [
+    { "idiom" : "universal", "color" : { "platform" : "universal", "reference" : "systemBlueColor" } }
+  ],
+  "info" : { "author" : "xcode", "version" : 1 }
+}
