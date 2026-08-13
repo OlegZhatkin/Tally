@@ -1,0 +1,43 @@
+name: Build
+
+# Windows-сборку нельзя сделать с macOS (для NSIS нужен wine), поэтому её собирает CI.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            script: dist:mac
+          - os: windows-latest
+            script: dist:win
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: electron
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: electron/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run ${{ matrix.script }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tally-${{ matrix.os }}
+          path: |
+            electron/release/*.dmg
+            electron/release/*.exe
+          if-no-files-found: error

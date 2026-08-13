@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tally — превью</title>
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <style>
+      body {
+        margin: 0;
+      }
+      .frame {
+        width: 340px;
+        height: 480px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame panel" id="root"></div>
+    <script>
+      const state = {
+        platform: 'darwin',
+        claude: {
+          bars: [
+            { kind: 'session', label: 'Текущая сессия (5 ч)', percent: 0.12, resetAt: 'Сброс 13 авг, 22:20' },
+            { kind: 'weekly_all', label: 'Неделя · все модели', percent: 0.47, resetAt: 'Сброс 18 авг, 07:00' },
+            { kind: 'weekly_scoped', label: 'Неделя · Sonnet', percent: 0.88, resetAt: 'Сброс 18 авг, 07:00' },
+          ],
+          isLoggedIn: true,
+          isLoading: false,
+          error: null,
+          needsChallenge: false,
+          debugRaw: 'orgs:200 org:abc usage:200',
+          planName: '',
+          planStatus: '',
+          updatedAt: Date.now(),
+        },
+        chatgpt: {
+          bars: [], isLoggedIn: true, isLoading: false, error: null, needsChallenge: false,
+          debugRaw: '', planName: 'Plus', planStatus: 'Активная подписка · продление 2026-09-01', updatedAt: Date.now(),
+        },
+        vpn: { verdict: 'ok', country: 'DE', reason: 'claude.ai отвечает.', checkedAt: Date.now() },
+        settings: {
+          statusBarMetric: 'session', refreshMinutes: 15, vpnWarningEnabled: true,
+          blockedCountries: ['RU', 'BY'], vpnAppPath: '/Applications/AmneziaVPN.app', launchAtLogin: false,
+        },
+      };
+
+      window.tally = {
+        getState: () => Promise.resolve(state),
+        onState: () => {},
+        refresh: () => Promise.resolve(state),
+        login: () => {},
+        updateSettings: () => Promise.resolve(state.settings),
+        hidePopup: () => {},
+        quit: () => {},
+        openExternal: () => {},
+        onVpnPayload: () => {},
+        recheckVpn: () => Promise.resolve(state.vpn),
+        openVpnApp: () => {},
+        closeVpnWarning: () => {},
+      };
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "tally",
+  "productName": "Tally",
+  "version": "2.0.0",
+  "description": "Трей-приложение для macOS и Windows: лимиты Claude и план ChatGPT",
+  "author": "Oleg Zhatkin",
+  "license": "MIT",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "start": "npm run build && electron .",
+    "typecheck": "tsc --noEmit",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:win": "npm run build && electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^32.2.7",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.6.3"
+  }
+}

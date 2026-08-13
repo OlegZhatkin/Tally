@@ -1,0 +1,45 @@
+appId: com.olegzhatkin.tally
+productName: Tally
+copyright: MIT
+
+directories:
+  output: release
+  buildResources: assets
+
+files:
+  - dist/**/*
+  - assets/**/*
+  - package.json
+
+asar: true
+
+mac:
+  category: public.app-category.developer-tools
+  icon: assets/icon.png
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+  # Приложение живёт в menubar — иконки в Dock быть не должно.
+  extendInfo:
+    LSUIElement: true
+  # Подпись ad-hoc: платного Developer ID нет, Gatekeeper обходится вручную (см. README).
+  identity: null
+
+win:
+  icon: assets/icon.png
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+    - target: portable
+      arch: [x64]
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Tally
+
+portable:
+  artifactName: Tally-${version}-portable.exe
